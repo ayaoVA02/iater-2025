@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react"
-import { Link, useLocation ,useNavigate} from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import Logo from "../components/Logo"
 import LanguageSelector from "../components/LanguageSelector"
 
@@ -66,41 +66,49 @@ const AboutPage = () => {
             <h2 className="text-lg font-bold mb-4" >3. Mission Statement (C-4 page 모델)</h2>
             <div className="flex justify-around mt-12">
               <div className="text-center">
-                <div className="w-20 h-20 mx-auto border-2 border-gray-300 rounded-lg p-2 mb-2">
-                  <svg viewBox="0 0 24 24" className="w-full h-full">
-                    <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
-                    <path d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8" fill="none" stroke="currentColor" strokeWidth="2" />
-                  </svg>
-                </div>
-                <p className="text-xs">사·인재 양성센터</p>
+                <Link to={'/aieducation'} >
+                  <div className="w-20 h-20 mx-auto border-2 border-gray-300 rounded-lg p-2 mb-2">
+                    <svg viewBox="0 0 24 24" className="w-full h-full">
+                      <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
+                      <path d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8" fill="none" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </div>
+                  <p className="text-xs hover:underline">사·인재 양성센터</p>
+                </Link>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 mx-auto border-2 border-gray-300 rounded-lg p-2 mb-2">
-                  <svg viewBox="0 0 24 24" className="w-full h-full">
-                    <rect x="4" y="4" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" />
-                    <rect x="8" y="8" width="8" height="8" fill="none" stroke="currentColor" strokeWidth="2" />
-                    <rect x="10" y="10" width="4" height="4" fill="none" stroke="currentColor" strokeWidth="2" />
-                  </svg>
-                </div>
-                <p className="text-xs">
-                  연구·개발센터 및<br />
-                  제품 기술 연구
-                </p>
+                <Link to={'/aieducation'} >
+
+                  <div className="w-20 h-20 mx-auto border-2 border-gray-300 rounded-lg p-2 mb-2">
+                    <svg viewBox="0 0 24 24" className="w-full h-full">
+                      <rect x="4" y="4" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" />
+                      <rect x="8" y="8" width="8" height="8" fill="none" stroke="currentColor" strokeWidth="2" />
+                      <rect x="10" y="10" width="4" height="4" fill="none" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </div>
+                  <p className="text-xs hover:underline">
+                    연구·개발센터 및<br />
+                    제품 기술 연구
+                  </p>
+                </Link>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 mx-auto border-2 border-gray-300 rounded-lg p-2 mb-2">
-                  <svg viewBox="0 0 24 24" className="w-full h-full">
-                    <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="none" stroke="currentColor" strokeWidth="2" />
-                    <path
-                      d="M12 16v-4M12 8h.01"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
-                <p className="text-xs">AI·정보화센터</p>
+                <Link to={'/aieducation'} >
+
+                  <div className="w-20 h-20 mx-auto border-2 border-gray-300 rounded-lg p-2 mb-2">
+                    <svg viewBox="0 0 24 24" className="w-full h-full">
+                      <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="none" stroke="currentColor" strokeWidth="2" />
+                      <path
+                        d="M12 16v-4M12 8h.01"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-xs hover:underline">AI·정보화센터</p>
+                </Link>
               </div>
             </div>
 

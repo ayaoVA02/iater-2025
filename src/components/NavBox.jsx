@@ -29,7 +29,7 @@ const NavBox = ({ title, color, link, subtitle, menuItems }) => {
     >
       <div
         className={`${colorClasses[color]} 
-          absolute top-0 left-0 w-full -translate-y-1/2 
+          absolute top-0 max-sm:top-[2rem] left-0 w-full -translate-y-1/2 
           rounded-[50px] md:hover:rounded-[100px] 
           p-8 text-white text-center transition-all duration-300 
           ${isMobile ? "h-auto" : "h-[200px] md:hover:h-[400px]"} 
