@@ -29,7 +29,7 @@ const HomePage = () => {
 
   return (
     <div className="bg-white ">
-      <div className="container mx-auto px-4 py-6">
+      <div className="container mx-auto px-4 py-6 ">
         <div className="flex justify-between items-center mb-8">
           <Logo />
           <LanguageSelector />
@@ -39,7 +39,8 @@ const HomePage = () => {
           <h1 className="text-xl mb-4">iATER는 라오스에 AI & IT 인재를 양성합니다.</h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-lg:h-[40vh] max-sm:h-[100vh] h-[50vh]  items-center  max-sm:space-y-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 items-start  md:h-[40vh] lg:h-[35vh]">
+
           <NavBox
             title="iATER 소개"
             color="blue"

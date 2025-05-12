@@ -98,13 +98,16 @@ const PeoplePage = () => {
                       </button>
                       <p className="text-sm">{person.description}</p>
                     </div>
-                    <div className="md:w-1/3">
-                      <img
-                        src={person.image}
-                        alt={person.name}
-                        className="w-full h-48 object-cover rounded border border-b-blue-400 border-r-blue-500 border-t-0 border-l-0"
-                      />
+                    <div className="relative w-full h-48 bg-amber-300"> {/* Parent needs relative */}
+                      <div className="absolute right-0 top-0 h-full w-auto">
+                        <img
+                          src={person.image}
+                          alt={person.name}
+                          className="h-full object-contain rounded border border-b-blue-400 border-r-blue-500 border-t-0 border-l-0"
+                        />
+                      </div>
                     </div>
+
                   </div>
                 ))}
               </div>
@@ -136,14 +139,7 @@ const PeoplePage = () => {
 
       </div>
 
-      {/* Bottom tab bar for mobile (e.g., Android) */}
-      <div className="block md:hidden fixed bottom-0 w-full bg-gray-100 border-t border-gray-300">
-        <div className="flex justify-around py-2">
-          <button className="text-blue-500">홈</button>
-          <button className="text-gray-700">교수</button>
-          <button className="text-gray-700">설정</button>
-        </div>
-      </div>
+
     </div>
   );
 };

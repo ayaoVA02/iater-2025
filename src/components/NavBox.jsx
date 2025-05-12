@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const NavBox = ({ title, color, link, subtitle, menuItems }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024); // now includes tablets
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 1024);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -19,28 +19,30 @@ const NavBox = ({ title, color, link, subtitle, menuItems }) => {
     green: "bg-green-500 hover:bg-green-500",
   };
 
-  const showDetails = isHovered || isMobile;
+  const showDetails = isMobile || isHovered;
 
   return (
     <div
-      className="relative text-center"
+      className="relative flex justify-center items-center w-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
         className={`${colorClasses[color]} 
-          absolute top-0 max-sm:top-[2rem] left-0 w-full -translate-y-1/2 
-          rounded-[50px] md:hover:rounded-[100px] 
-          p-8 text-white text-center transition-all duration-300 
-          ${isMobile ? "h-auto" : "h-[200px] md:hover:h-[400px]"} 
-          md:hover:scale-114 md:hover:z-30 
-          flex flex-col justify-center items-center`}
+          lg:absolute w-full max-w-[400px] lg:mt-[60%]
+          rounded-[50px] lg:hover:rounded-[100px] 
+          p-8 text-white text-center 
+          transition-all duration-300 transform origin-center 
+          ${isMobile ? "h-[400px]" : "h-[200px] lg:hover:h-[400px] lg:hover:scale-110"} 
+          flex flex-col justify-center items-center 
+          ${!isMobile && "lg:hover:z-30"}
+        `}
       >
         <h2 className="text-2xl font-bold mb-4">{title}</h2>
         <p className="text-sm">{subtitle}</p>
 
         {showDetails && menuItems && (
-          <div className="w-full mt-4 text-white transition-all duration-300">
+          <div className="w-full mt-4 transition-all duration-300">
             <ul className="text-left">
               {menuItems.map((item, index) => (
                 <li key={index} className="mb-2">
