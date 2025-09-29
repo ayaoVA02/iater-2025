@@ -13,7 +13,7 @@ import Professors from "./pages/Professors"
 
 function App() {
   return (
-    <Router>
+    <Router basename="/iater-front">
       <Routes>
         <Route path="/" element={<Onboard />} />
           <Route path="iater" element={<Layout />}>
