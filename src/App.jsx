@@ -8,21 +8,25 @@ import PeoplePage from "./pages/PeoplePage"
 import HistoryPage from "./pages/HistoryPage"
 import AIEducationTabs from "./pages/AIEducationTabs"
 import BlogPostDetail from "./pages/BlogPostDetail"
+import Onboard from "./pages/Onboard"
+import Professors from "./pages/Professors"
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="project" element={<ProjectPage />} />
-          <Route path="program" element={<ProgramPage />} />
-          <Route path="people" element={<PeoplePage />} />
-          <Route path="history" element={<HistoryPage />} />
-          <Route path="aieducation" element={<AIEducationTabs />} />
-          <Route path="projectDetail/:id" element={<BlogPostDetail />} />
-        </Route>
+        <Route path="/" element={<Onboard />} />
+          <Route path="iater" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="project" element={<ProjectPage />} />
+            <Route path="program" element={<ProgramPage />} />
+            <Route path="professors" element={<Professors />} />
+
+            <Route path="history" element={<HistoryPage />} />
+            <Route path="aieducation" element={<AIEducationTabs />} />
+
+          </Route>
       </Routes>
     </Router>
   )

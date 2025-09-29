@@ -1,72 +1,90 @@
-import NavBox from "../components/NavBox"
-import Banner from "../components/Banner"
-import Logo from "../components/Logo"
-import LanguageSelector from "../components/LanguageSelector"
+import IntroductBox from "../components/IntroductBox"
 
+import { useTranslation } from "react-i18next";
+import useDeviceType from "../hook/useDeviceType";
+import ProgrameBox from "../components/ProgrameBox"
+import ProjectBox from "../components/ProjectBox"
 const HomePage = () => {
+  const { t, i18n } = useTranslation();
+  const deviceType = useDeviceType();
+  const getContentWidth = () => {
+    if (deviceType === 'desktop') return 'desktopWidth';
+    if (deviceType === 'tablet') return 'templetWidth';
+    return 'mobileWidth'; // mobile
+  };
   const aboutMenuItems = [
-    { name: "Vision (iATER 소개)", link: "/about#vision" },
-    { name: "Mission (설립목적)", link: "/about#mission" },
-    { name: "Mission Statement", link: "/about#mission-statement" },
-    { name: "조직도 (조직운영)", link: "/about#organization" },
-    { name: "함께하는 이들", link: "/people" },
-    { name: "주요연혁", link: "/history" },
-    { name: "BI (iATER logo)", link: "/about#logo" },
+    { name: `${t("home.aboutMenuItems1")}`, link: "/iater/about#vision" },
+    { name: `${t("home.aboutMenuItems2")}`, link: "/iater/about#mission" },
+    { name: `${t("home.aboutMenuItems3")}`, link: "/iater/about#mission-statement" },
+    { name: `${t("home.aboutMenuItems4")}`, link: "/iater/about#organization" },
+    { name: `${t("home.aboutMenuItems5")}`, link: "/iater/professors" },
+    { name: `${t("home.aboutMenuItems6")}`, link: "/iater/history" },
+    { name: `${t("home.aboutMenuItems7")}`, link: "/iater/about#logo" },
   ]
 
   const projectMenuItems = [
-    { name: "외부 Project", link: "/project#external" },
-    { name: "내부 활동", link: "/project#internal" },
-    { name: "연구활동", link: "/project#research" },
+    { name: `${t("home.projectMenuItems1")}`, link: "/iater/project#external" },
+    { name: `${t("home.projectMenuItems2")}`, link: "/iater/project#internal" },
+    { name: `${t("home.projectMenuItems3")}`, link: "/iater/project#research" },
   ]
 
   const programMenuItems = [
-    { name: "Plan", link: "/program#plan" },
-    { name: "iATER 교육과정", link: "/program#curriculum" },
-    { name: "기관 연계계획", link: "/program#partnerships" },
-    { name: "Mission Statement", link: "/program#mission" },
+    { name: `${t("home.programMenuItems1")}`, link: "/iater/program?slide=0" },
+    { name: `${t("home.programMenuItems2")}`, link: "/iater/program?slide=1" },
+    { name: `${t("home.programMenuItems3")}`, link: "/iater/program?slide=2" },
+    { name: `${t("home.programMenuItems4")}`, link: "/iater/program?slide=3" },
   ]
 
+  // Map language to font class
+  const fontClass = {
+    en: "font-en",
+    la: "font-lao",
+    ko: "font-kr",
+  }[i18n.language];
+  console.log(deviceType);
+
   return (
-    <div className="bg-white ">
-      <div className="container mx-auto px-4 py-6 ">
-        <div className="flex justify-between items-center mb-8">
-          <Logo />
-          <LanguageSelector />
-        </div>
 
-        <div className="text-center mb-12">
-          <h1 className="text-xl mb-4">iATER는 라오스에 AI & IT 인재를 양성합니다.</h1>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 items-start  md:h-[40vh] lg:h-[35vh]">
 
-          <NavBox
-            title="iATER 소개"
+    <div className={`bg-white ${fontClass} ${getContentWidth()} mx-auto mt-12`}>
+      <div className={` ${deviceType === 'mobile' ? ' h-[1100px] mx-auto ' : 'h-[500px] '}  flex justify-between items-center mb-12`}>
+        <div className={`${deviceType === 'mobile' ? 'flex-col space-y-2 mx-auto' : 'flex space-x-2'}  `}>
+
+          <IntroductBox
+            title={t("home.title")}
             color="blue"
             link="/about"
-            subtitle="iATER을 소개합니다"
+            subtitle={t("home.intoduc_subtitle")}
             menuItems={aboutMenuItems}
+          // isActive={activeBox === 'about'}
           />
-          <NavBox
-            title="PROJECT"
+          <ProjectBox
+            title={t("home.project")}
             color="orange"
             link="/project"
-            subtitle="iATER는 연구를 합니다"
+            subtitle={t("home.project_subtitle")}
             menuItems={projectMenuItems}
           />
-          <NavBox
-            title="PROGRAM"
+          <ProgrameBox
+            title={t("home.program")}
             color="green"
             link="/program"
-            subtitle="iATER는 배움이 있습니다"
+            subtitle={t("home.program_subtitle")}
             menuItems={programMenuItems}
           />
+
+
         </div>
 
       </div>
-      <Banner />
+
+
+      {/* <Banner /> */}
+
     </div>
+
+
   )
 }
 

@@ -1,186 +1,214 @@
-
-
 import { useState } from "react"
-import Logo from "../components/Logo"
-import LanguageSelector from "../components/LanguageSelector"
-import { im4, im5, im6, im7, im8, im9 } from "../assets/images"
-import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
+// import { usePosts } from "../hook/usePosts"
+import BlogPostModal from "./BlogPostDetail"
+import { BiCalendar, BiRefresh } from "react-icons/bi"
+import { BsEye, BsFileText } from "react-icons/bs"
+
 const ProjectPage = () => {
-  const [activeTab, setActiveTab] = useState("external")
+  // const { data: posts, isLoading, error } = usePosts()
+  const { t, i18n } = useTranslation()
+  const [selectedPost, setSelectedPost] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const tabs = [
-    { id: "external", name: "External activities", color: "bg-blue-500" },
-    { id: "internal", name: "Internal activities", color: "bg-orange-500" },
-    { id: "research", name: "Research activities", color: "bg-green-500" },
-  ]
+  const handlePostClick = (post) => {
+    setSelectedPost(post)
+    setIsModalOpen(true)
+  }
+  const posts = []
 
-  const projects = [
-    {
-      id: 1,
-      tab: "external",
-      title: "항공대 학과 13개교 매니저멘트 HEWEGO",
-      date: "2023.03.11",
-      views: 1,
-      image: im4,
-      description:
-        "HEWEGO(헤위고)는 4가지 모델을 통하여 13개교 항공대 서비스로 항공 관광을 활성화가 되어있 매니저멘트 시스템으로 CCG와 신한은 U-Campus에서 시작되어 지금 현재 시작하게 되어 TM-그룹스 시스템으로 운영되고 있습니다.",
-    },
-    {
-      id: 2,
-      tab: "internal",
-      title: "경기 복합센터 참여하는 바람, 마음부...",
-      date: "2023.03.11",
-      views: 14,
-      image: im5,
-      description:
-        "경기도 서비스로 항공 관광을 활성화가 되어있 매니저멘트 시스템으로 CCG와 신한은 U-Campus에서 시작되어 지금 현재 시작하게 되어 TM-그룹스 시스템으로 운영되고 있습니다.",
-    },
-    {
-      id: 3,
-      tab: "research",
-      title: "제6기 신입생 졸업 수료 및 취업처",
-      date: "2023.03.10",
-      views: 9,
-      image: im6,
-      description:
-        "6기수, 5기수, 3기수 총 13명 신입사 졸업 수료, 12개사 3명씩 졸업 신입사원들에게 수료한 2023년 제6기 신입생 졸업 수료식 개최하여 ~ 졸업 신입사 취업처(이니셜만), 2명 취업 완료하여 신입사원, 2명 취업 활동중",
-    },
-    {
-      id: 4,
-      tab: "external",
-      title: "고 전효성 시장 5주년 행사 추모 헌화 ~",
-      date: "2023.02.13",
-      views: 2,
-      image:im7,
-      description: "추모CG 설명과 기념) 감동을 복사에 헌안 헌화 추모",
-    },
-    {
-      id: 5,
-      tab: "internal",
-      title: "25년 겨울 강사지도 협회 행사",
-      date: "2023.02.01",
-      views: 3,
-      image: im8,
-      description: "FOCUS ON 4차산업혁명 위험안전사회 안전놀이터",
-    },
-    {
-      id: 6,
-      tab: "research",
-      title: "The 아름다운 꿈들",
-      date: "2023.01.30",
-      views: 3,
-      image: im9,
-      description: "제6기 졸업식과 제6기, The 아름다운 꿈들하다",
-    },
-    {
-      id: 7,
-      tab: "research",
-      title: "The 아름다운 꿈들",
-      date: "2023.01.30",
-      views: 3,
-      image: im9,
-      description: "제6기 졸업식과 제6기, The 아름다운 꿈들하다",
-    },
-    {
-      id: 8,
-      tab: "research",
-      title: "The 아름다운 꿈들",
-      date: "2023.01.30",
-      views: 3,
-      image: im9,
-      description: "제6기 졸업식과 제6기, The 아름다운 꿈들하다",
-    },
-    {
-      id: 9,
-      tab: "internal",
-      title: "25년 겨울 강사지도 협회 행사",
-      date: "2023.02.01",
-      views: 3,
-      image: im8,
-      description: "FOCUS ON 4차산업혁명 위험안전사회 안전놀이터",
-    },
-    {
-      id: 10,
-      tab: "internal",
-      title: "25년 겨울 강사지도 협회 행사",
-      date: "2023.02.01",
-      views: 3,
-      image: im8,
-      description: "FOCUS ON 4차산업혁명 위험안전사회 안전놀이터",
-    },
-    {
-      id: 11,
-      tab: "external",
-      title: "항공대 학과 13개교 매니저멘트 HEWEGO",
-      date: "2023.03.11",
-      views: 1,
-      image: im4,
-      description:
-        "HEWEGO(헤위고)는 4가지 모델을 통하여 13개교 항공대 서비스로 항공 관광을 활성화가 되어있 매니저멘트 시스템으로 CCG와 신한은 U-Campus에서 시작되어 지금 현재 시작하게 되어 TM-그룹스 시스템으로 운영되고 있습니다.",
-    },
-    {
-      id: 12,
-      tab: "external",
-      title: "항공대 학과 13개교 매니저멘트 HEWEGO",
-      date: "2023.03.11",
-      views: 1,
-      image: im4,
-      description:
-        "HEWEGO(헤위고)는 4가지 모델을 통하여 13개교 항공대 서비스로 항공 관광을 활성화가 되어있 매니저멘트 시스템으로 CCG와 신한은 U-Campus에서 시작되어 지금 현재 시작하게 되어 TM-그룹스 시스템으로 운영되고 있습니다.",
-    },
-  ]
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setSelectedPost(null)
+  }
 
-  const filteredProjects = projects.filter((project) => project.tab === activeTab)
+  const fontClass = {
+    en: "font-en",
+    la: "font-lao",
+    ko: "font-kr",
+  }[i18n.language]
+
+  // Utility to format date
+  const formatDate = (iso) => {
+    const date = new Date(iso)
+    return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`
+  }
+
+  // Filter posts based on current tab
+
+  if (posts === null) return (
+
+    <div className="px-4 w-[1224px] mx-auto">
+
+      <div className="flex  flex-col  items-center justify-center min-h-96 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 p-12">
+        {/* Icon */}
+        <div className="mb-6">
+          <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
+            <BsFileText className="w-10 h-10 text-gray-400" />
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="text-center max-w-md">
+          <h3 className="text-xl font-semibold text-gray-400 mb-3">
+            No Posts Available
+          </h3>
+          <p className="text-gray-400 text-sm leading-relaxed mb-8">
+            There are currently no posts to display. Please check back later as new content may be added soon.
+          </p>
+
+          {/* Action Button */}
+          <div className="flex justify-center">
+            <button className="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-md border border-gray-300 transition-colors duration-200">
+              <BiRefresh className="w-4 h-4 mr-2" />
+              Refresh Page
+            </button>
+          </div>
+        </div>
+
+        {/* Additional Info */}
+        <div className="mt-8 pt-6 border-t border-gray-200 w-full max-w-md">
+          <div className="text-center">
+            <p className="text-xs text-gray-400 mb-2">What you can do:</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                Check back later
+              </span>
+              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                Refresh the page
+              </span>
+              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                Browse other sections
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+  // const filteredPosts = (posts || [])
+
+  // if (isLoading) return <p>Loading...</p>
+  // if (error) return <p>Error loading posts</p>
 
   return (
-    <div className="bg-white">
-      <div className="container mx-auto px-4 py-6">
-        <div className="flex justify-between items-center mb-8">
-          <Logo />
-          <LanguageSelector />
-        </div>
-
-        <h1 className="text-center text-xl mb-6">iATER는 연구를 합니다</h1>
-
-        <div className="flex mb-6">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              className={`px-4 cursor-pointer py-2 ${tab.color} text-white ${activeTab === tab.id ? "font-bold" : "opacity-80"}`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.name}
-            </button>
-          ))}
-        </div>
+    <div className={`bg-white ${fontClass}`}>
+      {/* <div className="container mx-auto px-4  py-6 w-[1224px]">
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-  {filteredProjects.map((project) => (
-    <Link to={`/projectDetail/${project.id}`} key={project.id}>
-      <div className="group rounded-lg overflow-hidden cursor-pointer">
-        <div className="overflow-hidden">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-48 object-cover transform transition-transform duration-300 group-hover:scale-105"
-          />
+          {filteredPosts.map((post) => {
+            const imageExists = post.images && post.images.trim() !== "";
+            const imageUrl = imageExists ? `/uploads/${post.images}` : null;
+
+            return (
+              <div
+                key={post.id}
+                onClick={() => handlePostClick(post)}
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2"
+              >
+           
+                <div className="overflow-hidden relative">
+                  <img
+                    src={imageUrl}
+                    alt={post.title}
+                    className="w-full h-48 object-cover transform transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute top-4 right-4">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-800 rounded-full text-xs font-semibold capitalize">
+                      {post.types}
+                    </span>
+                  </div>
+                </div>
+
+   
+                <div className="p-6">
+                  <h3 className="font-bold text-xl mb-3 text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+
+                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                    <div className="flex items-center">
+                      <BiCalendar size={16} className="mr-1" />
+                      <span>{formatDate(post.createdAt)}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <BsEye size={16} className="mr-1" />
+                      <span>{post.viewer || 0}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-600 line-clamp-3 leading-relaxed">
+                    {post.content.replace(/h2 (.*?) h2/g, '').substring(0, 120)}...
+                  </p>
+
+                  <div className="mt-4 flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors">
+                    Read more
+                    <svg className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
-        <div className="p-4">
-          <h3 className="font-bold mb-2 hover:text-blue-500">{project.title}</h3>
-          <div className="flex justify-between text-xs text-gray-500 mb-2">
-            <span>{project.date}</span>
-            <span>👁 {project.views}</span>
+
+        <BlogPostModal
+          post={selectedPost}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          allPosts={posts}
+        />
+      </div> */}
+
+
+      <div className="px-4 w-[1224px] mx-auto">
+
+      <div className="flex  flex-col  items-center justify-center min-h-96 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 p-12">
+        {/* Icon */}
+        <div className="mb-6">
+          <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
+            <BsFileText className="w-10 h-10 text-gray-400" />
           </div>
-          <p className="text-sm">{project.description}</p>
+        </div>
+
+        {/* Main Content */}
+        <div className="text-center max-w-md">
+          <h3 className="text-xl font-semibold text-gray-400 mb-3">
+            No Posts Available
+          </h3>
+          <p className="text-gray-400 text-sm leading-relaxed mb-8">
+            There are currently no posts to display. Please check back later as new content may be added soon.
+          </p>
+
+          {/* Action Button */}
+          <div className="flex justify-center">
+            <button className="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-md border border-gray-300 transition-colors duration-200">
+              <BiRefresh className="w-4 h-4 mr-2" />
+              Refresh Page
+            </button>
+          </div>
+        </div>
+
+        {/* Additional Info */}
+        <div className="mt-8 pt-6 border-t border-gray-200 w-full max-w-md">
+          <div className="text-center">
+            <p className="text-xs text-gray-400 mb-2">What you can do:</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                Check back later
+              </span>
+              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                Refresh the page
+              </span>
+              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                Browse other sections
+              </span>
+            </div>
+          </div>
         </div>
       </div>
-    </Link>
-  ))}
-</div>
-
-
-
-      </div>
+    </div>
     </div>
   )
 }

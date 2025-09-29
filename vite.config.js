@@ -12,4 +12,10 @@ export default defineConfig({
     port: process.env.PORT || 5173,
     allowedHosts: ['iater-web-front.onrender.com'],
   },
+   build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    assetsDir: 'assets'
+  },
+  base: '/iater-front/'
 })
