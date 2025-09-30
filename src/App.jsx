@@ -13,7 +13,7 @@ import Professors from "./pages/Professors"
 
 function App() {
   return (
-    <Router basename="/iater-front">
+    <Router>
       <Routes>
         <Route path="/" element={<Onboard />} />
           <Route path="iater" element={<Layout />}>
@@ -22,7 +22,7 @@ function App() {
             <Route path="project" element={<ProjectPage />} />
             <Route path="program" element={<ProgramPage />} />
             <Route path="professors" element={<Professors />} />
-
+            
             <Route path="history" element={<HistoryPage />} />
             <Route path="aieducation" element={<AIEducationTabs />} />
 
