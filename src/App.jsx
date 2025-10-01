@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Layout from "./components/Layout"
 import HomePage from "./pages/HomePage"
 import AboutPage from "./pages/AboutPage"
@@ -15,18 +15,19 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Onboard shown at root */}
         <Route path="/" element={<Onboard />} />
-          <Route path="iater" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="project" element={<ProjectPage />} />
-            <Route path="program" element={<ProgramPage />} />
-            <Route path="professors" element={<Professors />} />
-            
-            <Route path="history" element={<HistoryPage />} />
-            <Route path="aieducation" element={<AIEducationTabs />} />
 
-          </Route>
+        {/* Main site inside Layout */}
+        <Route path="iater" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="project" element={<ProjectPage />} />
+          <Route path="program" element={<ProgramPage />} />
+          <Route path="professors" element={<Professors />} />
+          <Route path="history" element={<HistoryPage />} />
+          <Route path="aieducation" element={<AIEducationTabs />} />
+        </Route>
       </Routes>
     </Router>
   )
