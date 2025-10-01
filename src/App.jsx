@@ -19,8 +19,8 @@ function App() {
         <Route path="/" element={<Onboard />} />
 
         {/* Main site inside Layout */}
-        <Route path="iater" element={<Layout />}>
-          <Route index element={<HomePage />} />
+        <Route  element={<Layout />}>
+          <Route path="home" element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="project" element={<ProjectPage />} />
           <Route path="program" element={<ProgramPage />} />

@@ -28,7 +28,7 @@ function Onboard() {
                   
                     <LanguageSelector />
                 </div> */}
-                <a href="/iater">
+                <a href="/home">
 
                     <div className="flex items-center justify-center flex-col w-full">
 
