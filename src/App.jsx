@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Layout from "./components/Layout"
 import HomePage from "./pages/HomePage"
 import AboutPage from "./pages/AboutPage"
@@ -19,8 +19,6 @@ function App() {
         {/* Onboard shown at root */}
         <Route path="/" element={<Onboard />} />
 
-        {/* Main site inside Layout */}
-          <Route path="test" element={<Test />} />
         <Route  element={<Layout />}>
           <Route path="home" element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
