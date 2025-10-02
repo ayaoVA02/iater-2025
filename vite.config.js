@@ -17,5 +17,5 @@ export default defineConfig({
     emptyOutDir: true,
     assetsDir: 'assets'
   },
-  base: '/iater-2025/'
+  base: '/'
 })

@@ -46,6 +46,8 @@ function Onboard() {
 
 
                         </FadeContent>
+
+                        <a href="/test">Go to Test</a>
                         <LanguageSelector />
                     </div>
                 </a>
