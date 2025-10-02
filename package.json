@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://ayaova02.github.io/iater-2025/",
   "scripts": {
     "dev": "vite",
-    "homepage": "https://ayaoVA02.github.io/iater-front/",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
