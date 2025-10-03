@@ -3,10 +3,10 @@ import LanguageSelector from '../components/LanguageSelector'
 import { useTranslation } from 'react-i18next';
 import FadeContent from '../components/ui/FadeContent';
 import useDeviceType from '../hook/useDeviceType';
-
+import { useNavigate } from "react-router-dom";
 function Onboard() {
     const { t, i18n } = useTranslation();
-
+  const navigate = useNavigate();
     // Map language to font class
     const fontClass = {
         en: "font-en",
@@ -28,7 +28,7 @@ function Onboard() {
                   
                     <LanguageSelector />
                 </div> */}
-                <a href="/home">
+                <button onClick={()=> navigate("/home")}>
 
                     <div className="flex items-center justify-center flex-col w-full">
 
@@ -50,7 +50,7 @@ function Onboard() {
            
                         <LanguageSelector />
                     </div>
-                </a>
+                </button>
             </div>
         </div>
     )
