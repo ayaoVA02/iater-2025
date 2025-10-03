@@ -92,24 +92,21 @@ useEffect(() => {
           </div>
         </div>
 
-
-
-
         <div className="flex gap-4 justify-around items-center w-full">
           <div className="rounded-lg overflow-hidden w-[400px]">
-            <img className="w-full h-[200px] object-cover" src="https://cdn.prod.website-files.com/60b550ccbb1a59f65dc28805/679d08d9ed93cb9c981b53c3_661e5dca8eb67f5abfed52b3_CB3mo20ayudarte20imagen20a20mA1s.jpeg" alt="" />
+            <img className="w-full h-[200px] object-cover" src="/webimage/showing00.jpeg" alt="iater image showing" />
           </div>
           <div className="rounded-lg overflow-hidden w-[400px]">
-            <img className="w-full h-[200px] object-cover" src="https://media.licdn.com/dms/image/v2/D5612AQH7_az8zGIVNQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1718965016362?e=2147483647&v=beta&t=LK2Pmk6wRUcv8shAsBkQBBwZ9K0WUyzPEbpackNi1Mk" alt="" />
+            <img className="w-full h-[200px] object-cover" src="/webimage/showing02.jpeg" alt="iater image showing" />
           </div>
           <div className="rounded-lg overflow-hidden w-[400px] h-[200px]">
-            <img src="https://www.hysons.co.uk/wp-content/uploads/2023/09/cat-bus-3.jpg.webp" alt="" className="w-full h-full object-cover" />
+            <img src="/webimage/showing03.jpeg" alt="iater image showing" className="w-full h-full object-cover" />
           </div>
         </div>
 
         {/* Mission */}
 
-        <div className="pt-24" id="mission">
+        <div className="pt-22" id="mission">
 
           <div className="px-4 flex flex-col gap-16 " >
 
