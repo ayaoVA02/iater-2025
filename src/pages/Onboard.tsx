@@ -28,7 +28,7 @@ function Onboard() {
                   
                     <LanguageSelector />
                 </div> */}
-                <button onClick={()=> navigate("/home")}>
+                <button onClick={()=> navigate("/home")} className='flex items-center justify-center flex-col w-full'>
 
                     <div className="flex items-center justify-center flex-col w-full">
 
