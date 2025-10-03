@@ -19,7 +19,7 @@ function App() {
         {/* Onboard shown at root */}
         <Route path="/" element={<Onboard />} />
 
-        <Route  element={<Layout />}>
+        <Route element={<Layout />}>
           <Route path="home" element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="project" element={<ProjectPage />} />
