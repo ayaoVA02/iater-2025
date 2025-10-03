@@ -15,23 +15,23 @@ import Test from "./pages/Test"
 function App() {
   return (
 
-    // <Routes>
-    //   {/* Onboard shown at root */}
-    //   <Route index element={<Onboard />} />
+    <Routes>
+      {/* Onboard shown at root */}
+      <Route index element={<Onboard />} />
 
-    //   <Route path="/" element={<Layout />}>
-    //     <Route path="home" element={<HomePage />} />
-    //     <Route path="about" element={<AboutPage />} />
-    //     <Route path="project" element={<ProjectPage />} />
-    //     <Route path="program" element={<ProgramPage />} />
-    //     <Route path="professors" element={<Professors />} />
-    //     <Route path="history" element={<HistoryPage />} />
-    //     <Route path="aieducation" element={<AIEducationTabs />} />
-    //   </Route>
-    // </Routes>
-    <div>
-      <h1>Hellow</h1>
-    </div>
+      <Route path="/" element={<Layout />}>
+        <Route path="home" element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="project" element={<ProjectPage />} />
+        <Route path="program" element={<ProgramPage />} />
+        <Route path="professors" element={<Professors />} />
+        <Route path="history" element={<HistoryPage />} />
+        <Route path="aieducation" element={<AIEducationTabs />} />
+      </Route>
+    </Routes>
+    // <div>
+    //   <h1>Hellow</h1>
+    // </div>
   )
 }
 
