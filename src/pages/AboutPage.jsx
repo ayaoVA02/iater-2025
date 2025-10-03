@@ -47,7 +47,7 @@ useEffect(() => {
 
   const handleClick = (boxName) => {
     setActiveBox(boxName);
-    navigate("/iater/"); // ← go to home page
+    navigate("/home"); // ← go to home page
   };
 
   const fontClass = {
@@ -132,7 +132,7 @@ useEffect(() => {
               <h1 className="text-4xl font-bold mb-4 text-[#105691]">{t("home.aboutMenuItems3")}</h1>
               <div className="flex justify-center mt-6 gap-4">
                 <div className="text-center">
-                  <Link to={'/iater/aieducation'} >
+                  <Link to={'/aieducation'} >
                     <div className={` ${isMobile ? "w-[100px]" : "w-[300px]"} h-auto mx-auto  mb-2`}>
 
                       <img src="/webimage/cores1.png" className="hover:scale-110 transition-all duration-300" alt="" />
@@ -141,7 +141,7 @@ useEffect(() => {
                   </Link>
                 </div>
                 <div className="text-center ">
-                  <Link to={'/iater/aieducation'}  >
+                  <Link to={'/aieducation'}  >
 
                                       <div className={` ${isMobile ? "w-[100px]" : "w-[300px]"} h-auto mx-auto  mb-2`}>
 
@@ -153,7 +153,7 @@ useEffect(() => {
                   </Link>
                 </div>
                 <div className="text-center ">
-                  <Link to={'/iater/aieducation'} >
+                  <Link to={'/aieducation'} >
 
                                        <div className={` ${isMobile ? "w-[100px]" : "w-[300px]"} h-auto mx-auto  mb-2`}>
 
@@ -237,8 +237,8 @@ useEffect(() => {
                   </div>
 
                 </div>
-                <h1 className={` font-bold mb-4 text-[#7b2d83] uppercase ${isMobile ? "text-[2rem] mt-12": "text-[5rem]"}`}>Step up knowledge</h1>
-                <h2 className="text-4xl">지식을 한 단계씩 확장하는 연구·교육 허브</h2>
+                <h1 className={` font-bold mb-4 text-[#7b2d83] uppercase ${isMobile ? "text-[2rem] mt-12": " mt-12 text-[3rem]"}`}>Step up knowledge</h1>
+                <p className="text-xl">지식을 한 단계씩 확장하는 연구·교육 허브</p>
               </div>
 
 

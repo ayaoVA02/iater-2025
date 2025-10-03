@@ -1,9 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import useDeviceType from '../hook/useDeviceType';
 import { isMobile } from 'react-device-detect';
 
 function Professors() {
 
-
+ const navigate = useNavigate(); 
     const deviceType = useDeviceType();
     const getContentWidth = () => {
         if (deviceType === 'desktop') return 'desktopWidth';
@@ -16,8 +17,8 @@ function Professors() {
         <div className={` ${isMobile ? "" : "desktopWidth "} mx-auto`}>
             <div className={`${getContentWidth()} ${isMobile ? "flex-col px-4" : "flex"} justify-between items-start `}>
                 <div className="w-1/3 pt-6 flex items-center gap-4">
-                    <img src="/icon/Solid/PNG/fan_.png" alt="" className="w-[100px] h-auto object-cover rounded-xl" />
-                    <h1 className="text-4xl font-bold text-[#105691]">Advisor</h1>
+                    <img src="/icon/Solid/PNG/fan_.png" alt="" className="w-[70px] h-auto object-cover rounded-xl" />
+                    <h1 className="text-3xl font-bold text-[#105691]">Advisor</h1>
                 </div>
 
                 <div className="relative flex flex-col  ">
@@ -41,9 +42,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                     <button onClick={() => navigate("/home")}>
+
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
-                                    </a>
+
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -65,11 +68,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                    <button onClick={() => navigate("/home")}>
 
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
 
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -83,9 +86,9 @@ function Professors() {
             {/* profressors */}
             <div className={`${isMobile ? "flex-col px-4" : "flex"} justify-between items-start `}>
                 <div className={`${isMobile ? "" : "pt-32"} w-1/3  flex items-center gap-4`}>
-                    <img src="/icon/Solid/PNG/processor_.png" alt="" className="w-[100px] h-auto object-cover rounded-xl" />
+                    <img src="/icon/Solid/PNG/processor_.png" alt="" className="w-[70px] h-auto object-cover rounded-xl" />
 
-                    <h1 className="text-4xl font-bold text-[#105691]">Professors</h1>
+                    <h1 className="text-3xl font-bold text-[#105691]">Professors</h1>
                 </div>
 
                 <div className="relative flex flex-col  ">
@@ -112,11 +115,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                    <button onClick={() => navigate("/home")}>
 
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
 
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -143,11 +146,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                    <button onClick={() => navigate("/home")}>
 
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
 
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -166,11 +169,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                    <button onClick={() => navigate("/home")}>
 
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
 
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -190,11 +193,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                    <button onClick={() => navigate("/home")}>
 
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
 
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -219,11 +222,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                    <button onClick={() => navigate("/home")}>
 
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
 
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -247,11 +250,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                    <button onClick={() => navigate("/home")}>
 
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
 
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -275,11 +278,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                    <button onClick={() => navigate("/home")}>
 
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
 
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -303,11 +306,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                    <button onClick={() => navigate("/home")}>
 
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
 
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -323,9 +326,9 @@ function Professors() {
             <div className={`${isMobile ? "flex-col px-4" : "flex"} justify-between items-start `}>
 
                 <div className="w-1/3 pt-32 flex items-center gap-4">
-                    <img src="/icon/Solid/PNG/save_.png" alt="" className="w-[100px] h-auto object-cover rounded-xl" />
+                    <img src="/icon/Solid/PNG/save_.png" alt="" className="w-[70px] h-auto object-cover rounded-xl" />
 
-                    <h1 className="text-4xl font-bold text-[#105691]">Human Resource & Finance</h1>
+                    <h1 className="text-3xl font-bold text-[#105691]">Human <br /> Resource & Finance</h1>
                 </div>
 
                 <div className="relative flex flex-col  ">
@@ -349,11 +352,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                    <button onClick={() => navigate("/home")}>
 
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
 
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -375,11 +378,11 @@ function Professors() {
                                 className="opacity-0 translate-x-0 group-hover:opacity-100 group-hover:-translate-x-24  transition-all duration-500 ease-in-out"
                             >
                                 <div className="pointer-events-auto">
-                                    <a href="/iater/">
+                                    <button onClick={() => navigate("/home")}>
 
                                         <img src="/icon/Solid/PNG/arrow_.png" alt="arrow back" className='w-24 h-24 object-cover' />
 
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
