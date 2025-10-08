@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next"
 import BlogPostModal from "./BlogPostDetail"
 import { BiCalendar, BiRefresh } from "react-icons/bi"
 import { BsEye, BsFileText } from "react-icons/bs"
+import Noblogs from "../components/Noblogs"
 
 const ProjectPage = () => {
   // const { data: posts, isLoading, error } = usePosts()
@@ -38,53 +39,7 @@ const ProjectPage = () => {
 
   if (posts === null) return (
 
-    <div className="px-4 w-[1224px] mx-auto">
-
-      <div className="flex  flex-col  items-center justify-center min-h-96 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 p-12">
-        {/* Icon */}
-        <div className="mb-6">
-          <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
-            <BsFileText className="w-10 h-10 text-gray-400" />
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="text-center max-w-md">
-          <h3 className="text-xl font-semibold text-gray-400 mb-3">
-            No Posts Available
-          </h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-8">
-            There are currently no posts to display. Please check back later as new content may be added soon.
-          </p>
-
-          {/* Action Button */}
-          <div className="flex justify-center">
-            <button className="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-md border border-gray-300 transition-colors duration-200">
-              <BiRefresh className="w-4 h-4 mr-2" />
-              Refresh Page
-            </button>
-          </div>
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-8 pt-6 border-t border-gray-200 w-full max-w-md">
-          <div className="text-center">
-            <p className="text-xs text-gray-400 mb-2">What you can do:</p>
-            <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                Check back later
-              </span>
-              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                Refresh the page
-              </span>
-              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                Browse other sections
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Noblogs />
   )
   // const filteredPosts = (posts || [])
 
@@ -160,55 +115,7 @@ const ProjectPage = () => {
           allPosts={posts}
         />
       </div> */}
-
-
-      <div className="px-4 w-[1224px] mx-auto">
-
-      <div className="flex  flex-col  items-center justify-center min-h-96 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 p-12">
-        {/* Icon */}
-        <div className="mb-6">
-          <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
-            <BsFileText className="w-10 h-10 text-gray-400" />
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="text-center max-w-md">
-          <h3 className="text-xl font-semibold text-gray-400 mb-3">
-            No Posts Available
-          </h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-8">
-            There are currently no posts to display. Please check back later as new content may be added soon.
-          </p>
-
-          {/* Action Button */}
-          <div className="flex justify-center">
-            <button className="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-md border border-gray-300 transition-colors duration-200">
-              <BiRefresh className="w-4 h-4 mr-2" />
-              Refresh Page
-            </button>
-          </div>
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-8 pt-6 border-t border-gray-200 w-full max-w-md">
-          <div className="text-center">
-            <p className="text-xs text-gray-400 mb-2">What you can do:</p>
-            <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                Check back later
-              </span>
-              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                Refresh the page
-              </span>
-              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                Browse other sections
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <Noblogs />
     </div>
   )
 }

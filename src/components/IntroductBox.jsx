@@ -2,13 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useDeviceType from "../hook/useDeviceType";
 import { useHoverBox } from "../context/HoverContext";
+import { useTranslation } from "react-i18next";
+import DOMPurify from "dompurify";
 
 const IntroductBox = ({ title, color, link, subtitle, menuItems }) => {
   const [isHovered, setIsHovered] = useState(false);
   const deviceType = useDeviceType();
   const { activeBox, clearActiveBox } = useHoverBox();
   const isMobile = deviceType === "mobile";
-
+const { t, i18n } = useTranslation();
   const isActive = isHovered || activeBox === "about";
   const backgroundImageUrl = isActive
     ? "/webimage/bg_about2.png"
@@ -16,7 +18,7 @@ const IntroductBox = ({ title, color, link, subtitle, menuItems }) => {
 
   return (
     <div
-      className={`relative overflow-hidden  transition-transform duration-500 ease-in-out ${isMobile ? "w-[390px] h-[390px] mx-auto" : "w-[390px] h-[390px]"
+      className={`relative overflow-hidden  transition-transform duration-500 ease-in-out ${isMobile ? "w-[360px] h-[390px] mx-auto" : "w-[390px] h-[390px]"
         } ${isActive && !isMobile ? "scale-125 z-20" : ""}`}
       onMouseEnter={() => {
         setIsHovered(true);
@@ -38,12 +40,13 @@ const IntroductBox = ({ title, color, link, subtitle, menuItems }) => {
         {isMobile ? (
           <>
             <div>
-              <h2 className="text-3xl font-bold text-white mb-4 ml-4">
-                안녕하세요 <br />iATER를 소개합니다
-              </h2>
+              <h2
+                className="text-3xl font-bold text-white mb-4 ml-4"
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(t("home.intoduc_subtitle")) }}
+              />
             </div>
             <ul className="text-white space-y-2 pl-24">
-              {menuItems.map((item, index) => (
+              {menuItems?.map((item, index) => (
                 <li key={index}>
                   <Link to={item.link} className="hover:underline">
                     {index + 1}. {item.name}
@@ -57,13 +60,14 @@ const IntroductBox = ({ title, color, link, subtitle, menuItems }) => {
             isActive && menuItems ? (
               <>
                 <div>
-                  <h2 className="text-3xl font-bold text-white mb-4 ml-4">
-                    안녕하세요 <br />iATER를 소개합니다
-                  </h2>
+                  <h2
+                    className="text-3xl px-12 font-bold text-white mb-4 ml-4"
+                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(t("home.intoduc_subtitle")) }}
+                  />
                 </div>
 
                 <ul className="text-white space-y-2 pl-24">
-                  {menuItems.map((item, index) => (
+                  {menuItems?.map((item, index) => (
                     <li key={index}>
                       <Link to={item.link} className="hover:underline">
                         {index + 1}. {item.name}

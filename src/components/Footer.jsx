@@ -29,9 +29,12 @@ const Footer = () => {
       >
         <div className="flex flex-col items-center  ">
           <img src="/webimage/iATER_logo.png" alt="" className="" />
+          {!isMobile && (
+
           <p className="text-lg text-gray-600 text-center md:text-left mt-2 uppercase">
             {t("banner.title")}
           </p>
+          )}
 
           <div className={` gap-4 ${isMobile ? "flex-col" : "flex"}`}>
             <p className="text-meduin text-gray-600 mb-1 flex gap-2 items-center"><MdEmail color="#1a8087" size={24} /> iaterkorea2020@gmail.com</p>

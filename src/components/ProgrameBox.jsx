@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useDeviceType from "../hook/useDeviceType";
 import { useHoverBox } from "../context/HoverContext";
+import { isMobile } from "react-device-detect";
+import { Trans } from "react-i18next";
 
 const ProgrameBox = ({ title, color, link, subtitle, menuItems }) => {
   const [isHovered, setIsHovered] = useState(false);
   const { activeBox ,clearActiveBox } = useHoverBox(); // Get current activeBox
   const deviceType = useDeviceType();
-  const isMobile = deviceType === "mobile";
+  // const isMobile = deviceType === "mobile";
 
   const isActive = isHovered || activeBox === "program";
 
@@ -38,8 +40,8 @@ const ProgrameBox = ({ title, color, link, subtitle, menuItems }) => {
           <>
             <div>
             <h2 className="text-3xl font-bold text-white mb-6 ml-4 transition-transform duration-500 ease-in-out">
-              iATER에는 <br />
-              배움이 있습니다
+             <Trans i18nKey={"home.program_subtitle"} />
+              
             </h2>
           </div>
             <ul className="text-white space-y-2 pl-24">
@@ -58,7 +60,8 @@ const ProgrameBox = ({ title, color, link, subtitle, menuItems }) => {
               <>
                 <div>
                   <h2 className="text-3xl font-bold text-white mb-4 ml-4">
-                    안녕하세요 <br />iATER를 소개합니다
+                    {/* 안녕하세요 <br />iATER를 소개합니다 */}
+                    {subtitle}
                   </h2>
                 </div>
 
@@ -73,7 +76,7 @@ const ProgrameBox = ({ title, color, link, subtitle, menuItems }) => {
                 </ul>
               </>
             ) : (
-              <h1 className="absolute top-1/2 right-4 transform -translate-x-1/5 -translate-y-1/2 text-white text-5xl font-bold">
+              <h1 className="absolute top-1/2 left-20 transform -translate-x-1/5 -translate-y-1/2 text-white text-5xl font-bold">
                 {title}
               </h1>
             )

@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 
 import { useTranslation, Trans } from "react-i18next";
 import useDeviceType from "../hook/useDeviceType";
+import ImageZoom from "../components/ImageZoom";
 import { useHoverBox } from "../context/HoverContext"
 const AboutPage = () => {
   const location = useLocation()
@@ -17,21 +18,21 @@ const AboutPage = () => {
   //     setActiveSection(location.hash.substring(1))
   //   }
   // }, [location])
-useEffect(() => {
-  if (location.hash) {
-    const sectionId = location.hash.substring(1);
-    setActiveSection(sectionId);
+  useEffect(() => {
+    if (location.hash) {
+      const sectionId = location.hash.substring(1);
+      setActiveSection(sectionId);
 
-    // 👇 Scroll to the element with this ID
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      // 👇 Scroll to the element with this ID
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      // Optional: scroll to top if no hash
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  } else {
-    // Optional: scroll to top if no hash
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-}, [location]);
+  }, [location]);
   const gotoHistory = () => {
     navigate('/iater/history');
   };
@@ -72,35 +73,37 @@ useEffect(() => {
 
         <div className="pt-24" id="vision">
 
-          <div className="bg-blue-50 rounded-[50px] p-8 mb-12 " >
+          <div className="bg-blue-50 rounded-2xl p-8 mb-12 " >
 
-            <h1 className={`text-4xl mb-6 text-[#105691] bold ${fontClass} `} > <b>{t("home.aboutMenuItems1")}</b> </h1>
-            <p className="mb-4"> <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.1_p1")}</Trans></p>
-            <p className="mb-4">
-              <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.1_p2")}</Trans>
+            <h1 className={` ${isMobile ? "text-2xl": "text-4xl"} mb-6 text-[#105691] bold ${fontClass} `} > <b>{t("home.aboutMenuItems1")}</b> </h1>
+            <p className="mb-4 text-justify leading-relaxed"> <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.vision.1_p1")}</Trans></p>
+            <p className="mb-4 text-justify leading-relaxed">
+              <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.vision.1_p2")}</Trans>
             </p>
-            <p className="mb-4">
-              <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.1_p3")}</Trans>
+            <p className="mb-4 text-justify leading-relaxed">
+              <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.vision.1_p3")}</Trans>
             </p>
-            <p className="mb-4">
-              <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.1_p4")}</Trans>
+            <p className="mb-4 text-justify leading-relaxed">
+              <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.vision.1_p4")}</Trans>
 
             </p>
-            <p className="mb-8">
-              <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.1_p5")}</Trans>
+            <p className="mb-8 text-justify leading-relaxed">
+              <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.vision.1_p5")}</Trans>
             </p>
           </div>
         </div>
 
-        <div className="flex gap-4 justify-around items-center w-full">
-          <div className="rounded-lg overflow-hidden w-[400px]">
-            <img className="w-full h-[200px] object-cover" src="/webimage/showing00.jpeg" alt="iater image showing" />
+        <div className={` ${isMobile ? "flex-col space-y-4" : "flex-row  gap-4"} flex justify-around items-center w-full`}>
+          <div className={`rounded-lg overflow-hidden ${isMobile ? "w-full" : "w-[400px]"}`}>
+            <ImageZoom className="w-full h-[200px] object-cover" src="/webimage/showing00.jpeg" alt="iater image showing" />
           </div>
-          <div className="rounded-lg overflow-hidden w-[400px]">
-            <img className="w-full h-[200px] object-cover" src="/webimage/showing02.jpeg" alt="iater image showing" />
+                  <div className={`rounded-lg overflow-hidden ${isMobile ? "w-full" : "w-[400px]"}`}>
+
+            <ImageZoom className="w-full h-[200px] object-cover" src="/webimage/showing02.jpeg" alt="iater image showing" />
           </div>
-          <div className="rounded-lg overflow-hidden w-[400px] h-[200px]">
-            <img src="/webimage/showing03.jpeg" alt="iater image showing" className="w-full h-full object-cover" />
+                    <div className={`rounded-lg overflow-hidden ${isMobile ? "w-full" : "w-[400px]"}`}>
+
+            <ImageZoom src="/webimage/showing03.jpeg" alt="iater image showing" className="w-full object-cover  h-[200px]"  />
           </div>
         </div>
 
@@ -111,14 +114,15 @@ useEffect(() => {
           <div className="px-4 flex flex-col gap-16 " >
 
             <div className="mt-14" >
-              <h1 className="text-4xl font-bold mb-12 text-[#105691] ">{t("home.aboutMenuItems2")}</h1>
+              <h1 className={` ${isMobile ? "text-2xl": "text-4xl"} font-bold mb-12 text-[#105691] `}>{t("home.aboutMenuItems2")}</h1>
               {/* <p className="mb-4"> <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.2_p1")}</Trans>
             </p>
             <p className="mb-4">
               <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.2_p2")}</Trans></p>
             <p className="mb-8 "><Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.2_p3")}</Trans></p> */}
               <div className="bg-blue-50 h-[32vh] px-4 py-8 rounded-lg ">
-                <p>급변하는 글로벌 환경 속에서 라오스 청년들이 능력있는 전문 인재를 키우고 라오스 전역에 컴퓨터 교육을 실시 함으로서 기술격차 해소와 ICT 대중화를 이루고 전문 개발자 양성과 강사 개발을 통한 생활 자립을 돕는 연구원을 설립하고자 합니다.</p>
+                {/* <p>급변하는 글로벌 환경 속에서 라오스 청년들이 능력있는 전문 인재를 키우고 라오스 전역에 컴퓨터 교육을 실시 함으로서 기술격차 해소와 ICT 대중화를 이루고 전문 개발자 양성과 강사 개발을 통한 생활 자립을 돕는 연구원을 설립하고자 합니다.</p> */}
+                <p className="text-justify leading-relaxed"><Trans i18nKey={"about.mission.context"} /></p>
               </div>
             </div>
           </div>
@@ -126,7 +130,7 @@ useEffect(() => {
           <div className="pt-24" id="mission-statement">
 
             <div className=" mx-auto ">
-              <h1 className="text-4xl font-bold mb-4 text-[#105691]">{t("home.aboutMenuItems3")}</h1>
+              <h1 className={` ${isMobile ? "text-2xl": "text-4xl"} font-bold mb-4 text-[#105691]`}>{t("home.aboutMenuItems3")}</h1>
               <div className="flex justify-center mt-6 gap-4">
                 <div className="text-center">
                   <Link to={'/aieducation'} >
@@ -140,7 +144,7 @@ useEffect(() => {
                 <div className="text-center ">
                   <Link to={'/aieducation'}  >
 
-                                      <div className={` ${isMobile ? "w-[100px]" : "w-[300px]"} h-auto mx-auto  mb-2`}>
+                    <div className={` ${isMobile ? "w-[100px]" : "w-[300px]"} h-auto mx-auto  mb-2`}>
 
 
                       <img src="/webimage/cores2.png" className="hover:scale-110 transition-all duration-300" alt="" />
@@ -152,7 +156,7 @@ useEffect(() => {
                 <div className="text-center ">
                   <Link to={'/aieducation'} >
 
-                                       <div className={` ${isMobile ? "w-[100px]" : "w-[300px]"} h-auto mx-auto  mb-2`}>
+                    <div className={` ${isMobile ? "w-[100px]" : "w-[300px]"} h-auto mx-auto  mb-2`}>
 
 
                       <img src="/webimage/cores3.png" className="hover:scale-110 transition-all duration-300" alt="" />
@@ -166,18 +170,32 @@ useEffect(() => {
 
             </div>
 
+            <div className="pt-12" >
+
+              <div className="bg-blue-50 rounded-2xl p-8 mb-12 " >
+
+                <p className="mb-4 text-justify leading-relaxed">
+                  <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.coreValues.2_p1")}</Trans>
+                </p>
+                <p className="mb-4 text-justify leading-relaxed">
+                  <Trans components={{ strong: <strong className="font-bold" /> }}>{t("about.coreValues.2_p2")}</Trans>
+                </p>
+
+              </div>
+            </div>
+
           </div>
 
           <div className="pt-24 " id="organization">
 
 
             <div className="relative">
-              <h1 className="text-4xl font-bold mb-4 text-[#105691]">{t("home.aboutMenuItems4")}</h1>
+              <h1 className={` ${isMobile ? "text-2xl": "text-4xl"} font-bold mb-4 text-[#105691]`}>{t("home.aboutMenuItems4")}</h1>
 
               <div className="flex flex-col gap-4 justify-center items-center">
 
-                <img src="/webimage/mission_statment_kr2.png" alt="iater mission statement image" className="w-[50%] h-auto object-cover mt-2" />
-                <h2 className="text-2xl  mt-4 text-center text-gray-600 " >iATER는 라오스 청년들을 균형잡힌 ICT 전문인재를 키우고자 <br /> 다양한 관점에서 교육과 연구를 진행하고 있습니다. </h2>
+                <ImageZoom src="/webimage/mission_statment_kr2.png" alt="iater mission statement image" className={` ${isMobile ? "w-[300px]" : "w-[50%]"} h-auto object-cover mt-2`} />
+                <h2 className="text-2xl  mt-4 text-center text-gray-600 " ><Trans i18nKey={"about.missionStatement.sigleContext"} /></h2>
               </div>
 
             </div>
@@ -186,7 +204,7 @@ useEffect(() => {
           <div className="pt-24" id="logo">
 
             <div>
-              <h1 className="text-4xl font-bold mb-4 text-[#105691]">{t("home.aboutMenuItems7")}</h1>
+              <h1 className={` ${isMobile ? "text-2xl": "text-4xl"} font-bold mb-4 text-[#105691]`}>{t("home.aboutMenuItems7")}</h1>
               <div className=" p-4 rounded-lg mb-8 text-center">
                 <div className={`${isMobile ? "flex-col" : "flex"} gap-10 items-center justify-center`}>
                   <div className={`${isMobile ? "w-[60%]" : "w-[40%]"}`}>
@@ -194,48 +212,50 @@ useEffect(() => {
                   </div>
                   {/* <ListMenu classStyle='flex-col' /> */}
 
-                  <div className={`flex flex-col  space-y-6 ${isMobile ? "mt-12":""}`}>
+                  <div className={`flex flex-col  space-y-6 ${isMobile ? "mt-12" : ""}`}>
 
-                    <botton onClick={()=> handleClick("about")}  className="flex gap-4 cursor-pointer transition-all duration-300 hover:text-gray-400">
+                    <button onClick={() => handleClick("about")} className="flex gap-4 cursor-pointer transition-all duration-300 hover:text-gray-400">
                       <div >
                         <img src="/webimage/Rectangle1.png" alt="about iATER" className="w-[50px] h-auto object-cover" />
                       </div>
 
-                      <p>정확성과 신뢰 : 데이터 중심, 체계적 교육 품질</p>
+                      <p><Trans i18nKey={"about.instituteIdentity.option1"} /></p>
 
-                    </botton>
+                    </button>
 
-                    <botton onClick={()=> handleClick("project")} className="flex gap-4 cursor-pointer  transition-all duration-300 hover:text-gray-400">
+                    <button onClick={() => handleClick("project")} className="flex gap-4 cursor-pointer  transition-all duration-300 hover:text-gray-400">
 
                       <div >
                         <img src="/webimage/Rectangle2.png" alt="project" className="w-[50px] h-auto object-cover" />
                       </div>
-                      <p>사회적 임팩트와 협업 : 산학연 협력, 지속가능성
-                      </p>
+                      <p><Trans i18nKey={"about.instituteIdentity.option2"} /></p>
 
-                    </botton>
 
-                    <botton onClick={()=> handleClick("program")}  className="flex gap-4 cursor-pointer transition-all duration-300 hover:text-gray-400">
+                    </button>
+
+                    <button onClick={() => handleClick("program")} className="flex gap-4 cursor-pointer transition-all duration-300 hover:text-gray-400">
 
                       <div >
                         <img src="/webimage/Rectangle3.png" alt="Program" className="w-[50px] h-auto object-cover" />
                       </div>
-                      <p>도전과 돌파 : 난제를 뚫는 연구정신, 장기적 신뢰감</p>
-                    </botton>
+                      <p><Trans i18nKey={"about.instituteIdentity.option3"} /></p>
+
+                    </button>
 
 
-                    <botton onClick={() => navigate("/")}  className="flex gap-4 cursor-pointer transition-all duration-300 hover:text-gray-400">
+                    <button onClick={() => navigate("/")} className="flex gap-4 cursor-pointer transition-all duration-300 hover:text-gray-400">
                       <div >
                         <img src="/webimage/Rectangle4.png" alt="none" className="w-[50px] h-auto object-cover" />
                       </div>
-                      <p>탐구와 창의: 상상력, 학문 간 융합</p>
-                    </botton>
+                      <p><Trans i18nKey={"about.instituteIdentity.option4"} /></p>
+
+                    </button>
 
                   </div>
 
                 </div>
-                <h1 className={` font-bold mb-4 text-[#7b2d83] uppercase ${isMobile ? "text-[2rem] mt-12": " mt-12 text-[3rem]"}`}>Step up knowledge</h1>
-                <p className="text-xl">지식을 한 단계씩 확장하는 연구·교육 허브</p>
+                <h1 className={` font-bold mb-4 text-[#7b2d83] uppercase ${isMobile ? "text-[2rem] mt-12" : " mt-12 text-[3rem]"}`}>Step up knowledge</h1>
+                <p className="text-xl">" <Trans i18nKey={"about.instituteIdentity.singleContext"} /> "</p>
               </div>
 
 

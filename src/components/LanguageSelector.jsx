@@ -1,4 +1,5 @@
-import {  koreanFlag } from '../assets/images';
+import { isMobile } from 'react-device-detect';
+import {  koreanFlag, laosFlag } from '../assets/images';
 import { useTranslation } from "react-i18next";
 
 const LanguageSelector = () => {
@@ -16,13 +17,13 @@ const LanguageSelector = () => {
   };
 
   return (
-    <div className="flex space-x-24">
-      {/* <button onClick={() => changeLanguage('en')} className={getButtonClass('en')}>
+    <div className={`flex ${isMobile ? 'space-x-14' : 'space-x-24'} justify-center items-center`}>
+      <button onClick={() => changeLanguage('en')} className={getButtonClass('en')}>
         <img src='/webimage/USA.png' alt="English" className="w-full h-full object-cover" />
       </button>
       <button onClick={() => changeLanguage('la')} className={getButtonClass('la')}>
         <img src={laosFlag} alt="Lao" className="w-full h-full object-cover" />
-      </button> */}
+      </button>
       <button onClick={() => changeLanguage('ko')} className={getButtonClass('ko')}>
         <img src={koreanFlag} alt="Korean" className="w-full h-full object-cover" />
       </button>

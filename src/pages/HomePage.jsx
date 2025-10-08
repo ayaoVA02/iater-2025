@@ -1,6 +1,6 @@
 import IntroductBox from "../components/IntroductBox"
 
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import useDeviceType from "../hook/useDeviceType";
 import ProgrameBox from "../components/ProgrameBox"
 import ProjectBox from "../components/ProjectBox"
@@ -52,7 +52,8 @@ const HomePage = () => {
         <div className={`${deviceType === 'mobile' ? 'flex-col space-y-2 mx-auto' : 'flex space-x-2'}  `}>
 
           <IntroductBox
-            title={t("home.title")}
+            title={<Trans i18nKey="home.title" />
+            }
             color="blue"
             link="/about"
             subtitle={t("home.intoduc_subtitle")}

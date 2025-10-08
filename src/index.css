@@ -1,7 +1,5 @@
-@import "tailwindcss";
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Lao&family=Noto+Sans+KR&family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+Lao:wght@400;700&family=Roboto:wght@400;700&display=swap');
+@import "tailwindcss";
 
 .font-lao {
   font-family: 'Noto Sans Lao', sans-serif;
@@ -163,6 +161,7 @@ body {
 .line-clamp-1 {
   display: -webkit-box;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -170,6 +169,7 @@ body {
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -177,6 +177,7 @@ body {
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

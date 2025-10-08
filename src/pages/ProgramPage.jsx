@@ -7,7 +7,7 @@ import AnimatedContent from "../components/ui/AnimatedContent";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useDeviceType from "../hook/useDeviceType";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import AIResearchTabs from "./AIEducationTabs";
 import { isMobile } from "react-device-detect";
 
@@ -21,6 +21,12 @@ const ProgramPage = () => {
   const [activeIndex, setActiveIndex] = useState(initialSlide || 0);
 
   const { t, i18n } = useTranslation();
+
+  const fontClass = {
+    en: "font-en",
+    la: "font-lao",
+    ko: "font-kr",
+  }[i18n.language];
 
   const deviceType = useDeviceType();
   const getContentWidth = () => {
@@ -63,7 +69,7 @@ const ProgramPage = () => {
   }, []);
 
   return (
-    <div className="bg-white">
+    <div className={`bg-white ${fontClass}`}>
       <div className={` mx-auto px-4 py-6 ${getContentWidth()} `}>
 
         <div className="relative ">
@@ -93,9 +99,7 @@ const ProgramPage = () => {
                   <div className="w-1/4  flex items-center gap-4">
                     <img src="/icon/Solid/PNG/webcam_.png" alt="" className="w-[100px] h-auto object-cover rounded-xl" />
 
-                    <h1 className="text-4xl font-bold text-[#105691]">iATER
-                      development
-                      plan</h1>
+                    <h1 className={` ${isMobile ? "text-2xl" : "text-4xl"} font-bold mb-12 text-[#105691] `}>{t("home.programMenuItems1")}</h1>
                   </div>
 
                   <img src="../webimage/programe_slide1.png" alt="" className="  w-[80%]" />
@@ -115,8 +119,7 @@ const ProgramPage = () => {
                   <div className={`${isMobile ? " mb-4" : "w-1/4"}   flex  items-center `}>
                     <img src="/icon/Solid/PNG/hdmi_.png" alt="" className="w-[100px] h-auto object-cover rounded-xl" />
 
-                    <h1 className="text-4xl font-bold text-[#105691]">iATER
-                      Course of study</h1>
+                    <h1 className={` ${isMobile ? "text-2xl" : "text-4xl"} font-bold mb-12 text-[#105691] `}>{t("home.programMenuItems2")}</h1>
                   </div>
 
                   {activeIndex === 1 && (
@@ -276,10 +279,8 @@ const ProgramPage = () => {
                   <div className="w-1/4  flex items-center gap-4">
                     <img src="/icon/Solid/PNG/gaming fan_.png" alt="" className="w-[100px] h-auto object-cover rounded-xl" />
 
-                    <h1 className="text-4xl font-bold text-[#105691]">Research
-                      with <br />
-                      external
-                      organizations
+                    <h1 className={` ${isMobile ? "text-2xl" : "text-4xl"} font-bold mb-12 text-[#105691] `}>
+                      <Trans i18nKey="home.programMenuItems3" components={{ br: <br /> }} />
                     </h1>
                   </div>
                   <div className="relative flex flex-col w-full ">
@@ -307,7 +308,7 @@ const ProgramPage = () => {
             <SwiperSlide>
 
               {/* slide 4 */}
-              <div className="px-12 flex flex-col gap-16 " >
+              <div className={` ${isMobile ? " " : "px-12 "}flex flex-col gap-16 `} >
                 <AIResearchTabs />
 
               </div>

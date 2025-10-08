@@ -32,9 +32,6 @@ function App() {
         </Route>
       </Routes>
     </Router>
-    // <div>
-    //   <h1>Hellow</h1>
-    // </div>
   )
 }
 
