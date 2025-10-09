@@ -150,10 +150,10 @@ const ProgramPage = () => {
 
                           <div className="absolute inset-0 flex items-center justify-start px-4  -mt-8 z-1 w-1/2 translate-y-1/2 h-38  ml-12">
                             <ul className="list-disc text-gray-500">
-                              <li> 기초 프로그래밍</li>
-                              <li> 기초 디자인</li>
-                              <li> 언어 [영어, 한국어]</li>
-                              <li> 기초학문·교양 [수학, 인문학]</li>
+                              <li>{t("programs.slide2.1.li_1")}</li>
+                              <li> {t("programs.slide2.1.li_2")}</li>
+                              <li> {t("programs.slide2.1.li_3")}</li>
+                              <li> {t("programs.slide2.1.li_4")}</li>
                             </ul>
                           </div>
                         </div>
@@ -184,10 +184,10 @@ const ProgramPage = () => {
 
                           <div className="absolute inset-0 flex items-center justify-start px-4 -mt-4   z-1 w-1/2 translate-x-full h-38  ">
                             <ul className="list-disc text-gray-200 ml-4">
-                              <li>프로그램 프로젝트 참여</li>
-                              <li> 교육현장 교육 과정</li>
-                              <li> 디자인, 영상 프로젝트</li>
-                              <li>공학수학</li>
+                              <li>{t("programs.slide2.2.li_1")}</li>
+                              <li>{t("programs.slide2.2.li_2")}</li>
+                              <li> {t("programs.slide2.2.li_3")}</li>
+                              <li>{t("programs.slide2.2.li_4")}</li>
                             </ul>
                           </div>
 
@@ -218,9 +218,9 @@ const ProgramPage = () => {
 
                           <div className="absolute inset-0 flex items-center justify-start px-4  -mt-8 z-1 w-1/2  h-38  ml-12">
                             <ul className="list-disc text-gray-100">
-                              <li>IT 기업체 인턴과정</li>
-                              <li> 석·박사 대학원 준비과정</li>
-                              <li> 언어능력시험</li>
+                              <li>{t("programs.slide2.3.li_1")}</li>
+                              <li> {t("programs.slide2.3.li_2")}</li>
+                              <li>{t("programs.slide2.3.li_3")}</li>
                             </ul>
                           </div>
                         </div>
@@ -254,10 +254,10 @@ const ProgramPage = () => {
 
                           <div className="absolute inset-0 flex items-center justify-start px-4 -mt-4  z-1 w-1/2 translate-x-full h-38  ">
                             <ul className="list-disc text-gray-200 ml-4">
-                              <li>ICT 관련학과 석·박사 과정 진항</li>
-                              <li>한국·라오스 ICT 기업체 취업</li>
-                              <li>한국 ICT 프로젝트 연구원 활동</li>
-                              <li>ICT 스타트업 인큐베이팅</li>
+                              <li>{t("programs.slide2.4.li_1")}</li>
+                              <li>{t("programs.slide2.4.li_2")}</li>
+                              <li>{t("programs.slide2.4.li_3")}</li>
+                              <li>{t("programs.slide2.4.li_4")}</li>
                             </ul>
                           </div>
                         </div>
